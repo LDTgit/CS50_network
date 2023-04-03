@@ -1,0 +1,26 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div id="page_display">
+    <div id="title">
+        <h1>All Posts</h1>
+    </div>
+    
+    {% if user.is_authenticated %}
+        <div class="post-container" id="new-post">
+            <span id="new_post">New post:</span>
+            <textarea class="my-post-input" id="new_post_text" cols="50" rows="5"></textarea>
+            <br>
+            <button class="post-button" id="new_post_button" role="button">Post</button>
+        </div>
+    {% endif %}
+    <div id="tweet_list"></div>
+</div>
+<div class="pagination"></div>
+{% endblock %}
+
